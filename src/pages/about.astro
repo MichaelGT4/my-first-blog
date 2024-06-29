@@ -1,9 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+const pageTitle = "Sobre Mi";
+
+const identity = {
+  firstName: "Michael",
+  country: "Dominican Republic",
+  occupation: "Developer",
+  hobbies: ["programación", "videojuegos", "música"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "NodeJS"];
 ---
 
-<Layout title="MG - About">
+<Layout title={"MG -" + pageTitle}>
   <main>
     <h1>Sobre Mi</h1>
     <h2>... Y este sitio web creado con Astro!!</h2>
@@ -17,6 +26,23 @@ import Card from "../components/Card.astro";
     </p>
 
     <p>Ire actualizando este sitio a medida que siga completando el Tutorial</p>
+
+    <section>
+      <p>He aqui algunos datos sobre mi:</p>
+      <ul>
+        <li>Me llamo {identity.firstName}</li>
+        <li>Vivo en {identity.country} y soy un {identity.occupation}</li>
+        <li>
+          Mis aficiones son: {identity.hobbies.map((a) => <span>{a}, </span>)}
+        </li>
+      </ul>
+    </section>
+    <section>
+      <p>Mis Habilidades son:</p>
+      <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </section>
   </main>
 </Layout>
 
